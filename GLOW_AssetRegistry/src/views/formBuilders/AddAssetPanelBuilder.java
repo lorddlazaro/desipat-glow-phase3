@@ -114,17 +114,7 @@ public class AddAssetPanelBuilder implements PanelBuilder{
 		gbc.gridx = 3;
 		gbc.gridy = 4;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		ArrayList<String> types = null;
-		try {
-			ArrayList<Reference> refList =  new Database().getAllType();
-			types = new ArrayList<String>();
-			for(int i = 0;i<refList.size();i++){
-				types.add(refList.get(i).getValue());
-			}
-		} catch (Exception e1) {
-			System.out.println("Initializing CMB in Panel failed");
-		}
-		JComboBox cmbType = new JComboBox(types.toArray());
+		JComboBox cmbType = new JComboBox();
 		cmbType.setName("Type");
 		panel.add(cmbType, gbc);
 		
@@ -167,17 +157,7 @@ public class AddAssetPanelBuilder implements PanelBuilder{
 		gbc.gridx = 3;
 		gbc.gridy = 7;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		ArrayList<String> maintSched = null;
-		try {
-			ArrayList<Reference> refList =  new Database().getAllMaintenanceSchedule();
-			maintSched = new ArrayList<String>();
-			for(int i = 0;i<refList.size();i++){
-				maintSched.add(refList.get(i).getValue());
-			}
-		} catch (Exception e1) {
-			System.out.println("Initializing CMB in Panel failed");
-		}
-		JComboBox cmbMaintenanceSched = new JComboBox(maintSched.toArray());
+		JComboBox cmbMaintenanceSched = new JComboBox();
 		cmbMaintenanceSched.setName("Maintenance Schedule");
 		panel.add(cmbMaintenanceSched, gbc);
 		
@@ -190,17 +170,7 @@ public class AddAssetPanelBuilder implements PanelBuilder{
 		gbc.gridx = 3;
 		gbc.gridy = 8;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		ArrayList<String> classifications = null;
-		try {
-			ArrayList<Reference> refList =  new Database().getAllClassification();
-			classifications = new ArrayList<String>();
-			for(int i = 0;i<refList.size();i++){
-				classifications.add(refList.get(i).getValue());
-			}
-		} catch (Exception e1) {
-			System.out.println("Initializing CMB in Panel failed");
-		}
-		JComboBox cmbClassification = new JComboBox(classifications.toArray());
+		JComboBox cmbClassification = new JComboBox();
 		cmbClassification.setName("Classification");
 		panel.add(cmbClassification, gbc);
 		
