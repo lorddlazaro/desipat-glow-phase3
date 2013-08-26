@@ -271,7 +271,8 @@ public class SearchAssetController {
 	
 public void setJTableData() {
 		
-		DefaultTableModel tempModel = (DefaultTableModel)table.getModel();
+		DefaultTableModel tempModel = /*new DefaultTableModel();*/(DefaultTableModel)table.getModel();
+		tempModel.getDataVector().removeAllElements();
 		tempModel.setColumnIdentifiers(tableColumnName);
 		try {
 			ArrayList<Asset> data = new Database().getAllAssets();
@@ -286,10 +287,9 @@ public void setJTableData() {
 			}
 			else{
 				Vector<String> newRow = new Vector();
-				DefaultTableModel newModel = (DefaultTableModel) table.getModel();
-				newModel.getDataVector().removeAllElements();
+				//DefaultTableModel newModel = (DefaultTableModel) table.getModel();
+				//newModel.getDataVector().removeAllElements();
 				for (int i = 0; i < data.size(); i++) {
-		        	newModel.addRow(newRow);
 					tempModel.setValueAt(data.get(i).getIdentifier(), i, 0);
 					tempModel.setValueAt(data.get(i).getAssetName(), i, 1);
 					tempModel.setValueAt(getLast(data.get(i).getOwner()),i,2);
@@ -299,7 +299,6 @@ public void setJTableData() {
 					tempModel.setValueAt(data.get(i).getType().getValue(), i, 6);
 					tempModel.setValueAt(data.get(i).getMaintenanceSchedule().getValue(), i, 7);
 					tempModel.setValueAt(data.get(i).getClassification().getValue(), i, 8);
-					newRow = new Vector();
 				}
 			}
 		
