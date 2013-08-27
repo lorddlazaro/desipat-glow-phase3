@@ -124,7 +124,7 @@ public class Database {
 	}
 	
 	public ArrayList<AssetLogEntry> getActionsFromPeriod(Calendar dateFrom, Calendar dateTo) throws SQLException {
-		// TODO should actually be for asset and reference history, but mysql hates me
+		// TODO should actually be for asset and reference history, but mysql hates me // d'aww, mysql so tsuntsun~
 		
 		String query = "";
 		int n = 0;
@@ -465,7 +465,7 @@ public class Database {
 		Connection conn = connectionFactory.getConnection();
 		
 		PreparedStatement ps = conn.prepareStatement("SELECT * FROM `asset` " +
-				"WHERE "+datetype+" >= '"+from+"' and "+datetype+" <= '"+to+"'; ");
+				"WHERE " + datetype + " >= '" + from + "' and " + datetype + " <= '" + to + "'; ");
 		
 		ResultSet rs = ps.executeQuery();
 		

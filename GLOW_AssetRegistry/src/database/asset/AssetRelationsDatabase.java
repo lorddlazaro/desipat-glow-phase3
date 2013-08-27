@@ -9,7 +9,7 @@ import database.abstracts.RecordableDatabase;
 import database.builders.CustomStatementDirector;
 import database.builders.references.AssetRelationInsertStatementBuilder;
 
-public class AssetRelationsDatabase extends RecordableDatabase {
+public abstract class AssetRelationsDatabase extends RecordableDatabase {
 	
 	private String table;
 	private int assetID;
@@ -20,11 +20,6 @@ public class AssetRelationsDatabase extends RecordableDatabase {
 		table = null;
 		assetID = 0;
 		referenceID = 0;
-	}
-	
-	@Override
-	public ArrayList<Object> select() throws SQLException {
-		return null;
 	}
 	
 	@Override

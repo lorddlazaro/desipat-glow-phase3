@@ -14,7 +14,7 @@ import database.builders.values.ValueInsertStatementBuilder;
 
 // TODO Currently lacks: update asset_value table
 
-public class ValueDatabase extends RewriteableDatabase {
+public abstract class ValueDatabase extends RewriteableDatabase {
 	
 	private int assetID;
 	private int valueTypeID;
@@ -25,11 +25,6 @@ public class ValueDatabase extends RewriteableDatabase {
 		assetID = 0;
 		valueTypeID = 0;
 		valueLevelID = 0;
-	}
-	
-	@Override
-	public ArrayList<Object> select() throws SQLException {
-		return null;
 	}
 	
 	@Override
@@ -55,12 +50,6 @@ public class ValueDatabase extends RewriteableDatabase {
 		ps.close();
 		
 		return resultingID;
-	}
-	
-	@Override
-	public void update() throws SQLException {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	public void setAssetID(int assetID) {

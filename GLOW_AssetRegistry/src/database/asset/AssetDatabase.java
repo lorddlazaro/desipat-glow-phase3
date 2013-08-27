@@ -15,7 +15,7 @@ import database.builders.asset.AssetInsertStatementBuilder;
 
 // TODO Currently lacks: search/get/select from asset table, and update asset table
 
-public class AssetDatabase extends RewriteableDatabase {
+public abstract class AssetDatabase extends RewriteableDatabase {
 	
 	private String assetName;
 	private Calendar dateAcquired;
@@ -32,12 +32,6 @@ public class AssetDatabase extends RewriteableDatabase {
 		typeID = 0;
 		classificationID = 0;
 		maintenanceScheduleID = 0;
-	}
-	
-	@Override
-	public ArrayList<Object> select() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	@Override
@@ -66,12 +60,6 @@ public class AssetDatabase extends RewriteableDatabase {
 		ps.close();
 		
 		return resultingID;
-	}
-	
-	@Override
-	public void update() throws SQLException {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	public void setAssetName(String assetName) {
